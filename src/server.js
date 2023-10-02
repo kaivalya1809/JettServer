@@ -10,7 +10,7 @@ wss.on('connection', (socket) => {
 
     socket.on('message',(message)=>{
       try{
-        console.log(message);
+        // console.log(message);
         const parsedMessage = JSON.parse(message);
          
         const group = parsedMessage.group;
