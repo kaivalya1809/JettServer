@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
 const WebSocket = require("ws");
-const port = 8080;
+const port = 3000;
 const wss  = new WebSocket.Server({server:server});
 const groups = {};
 wss.on('connection', (socket) => {
@@ -10,6 +10,7 @@ wss.on('connection', (socket) => {
 
     socket.on('message',(message)=>{
       try{
+        console.log(message);
         const parsedMessage = JSON.parse(message);
         const group = parsedMessage.group;
         if(!groups[group]){
