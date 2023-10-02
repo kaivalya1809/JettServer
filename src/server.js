@@ -14,18 +14,19 @@ wss.on('connection', (socket) => {
         const parsedMessage = JSON.parse(message);
          
         const group = parsedMessage.group;
-        console.log("the below number is group");
-        console.log(group);
-        console.log(groups);
+
         if(!groups[group]){
           groups[group] = [];
         }
-        
+        console.log("b1");
         groups[group].push(socket);
-
+        console.log("b2");
         groups[group].forEach((client)=>{
+            console.log("b3");
           if (client !== ws && client.readyState === WebSocket.OPEN) {
+                console.log("b4");
                 client.send(message);
+                console.log("b5");
               }
         })
       } catch (error) {
