@@ -12,13 +12,15 @@ wss.on('connection', (socket) => {
       try{
         console.log(message);
         const parsedMessage = JSON.parse(message);
-        console.log("break1");
-        console.log(parsedMessage.group);
-        console.log("break2");
+         
         const group = parsedMessage.group;
+        console.log("the below number is group");
+        console.log(group);
+        console.log(groups);
         if(!groups[group]){
           groups[group] = [];
-        } 
+        }
+        
         groups[group].push(socket);
 
         groups[group].forEach((client)=>{
