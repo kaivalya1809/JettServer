@@ -23,7 +23,7 @@ wss.on('connection', (socket) => {
         console.log("b2");
         groups[group].forEach((client)=>{
             console.log("b3");
-          if (client !== ws && client.readyState === WebSocket.OPEN) {
+          if (client !== socket && client.readyState === WebSocket.OPEN) {
                 console.log("b4");
                 client.send(message);
                 console.log("b5");
