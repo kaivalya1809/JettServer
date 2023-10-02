@@ -12,6 +12,9 @@ wss.on('connection', (socket) => {
       try{
         console.log(message);
         const parsedMessage = JSON.parse(message);
+        console.log("break1");
+        console.log(parsedMessage.group);
+        console.log("break2");
         const group = parsedMessage.group;
         if(!groups[group]){
           groups[group] = [];
